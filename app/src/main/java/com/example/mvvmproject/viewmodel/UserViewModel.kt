@@ -31,7 +31,6 @@ class UserViewModel: ViewModel() {
     fun editUser(){
         usersRepository.editUser(User(userName,userAge), index)
         edit=false
-        usersList=usersRepository.getUsers()
     }
     fun changeUser(user: User){
         edit=true

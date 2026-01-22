@@ -10,8 +10,8 @@ class UsersRepositoryImpl: UserRepository {
         users.add(user)
     }
     override fun editUser(user: User,index:Int) {
-        users[index].name=user.name
-        users[index].age=user.age
+        users.remove(users[index])
+        users.add(index,user)
     }
     override fun delete(user: User) {
         users.remove(user)

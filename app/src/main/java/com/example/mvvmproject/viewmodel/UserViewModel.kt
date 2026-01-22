@@ -1,6 +1,7 @@
 package com.example.mvvmproject.viewmodel
 
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
@@ -10,7 +11,7 @@ import com.example.mvvmproject.data.UsersRepositoryImpl
 
 class UserViewModel: ViewModel() {
     private val usersRepository: UserRepository= UsersRepositoryImpl()
-    val users=usersRepository.getUsers()
+    var usersList=usersRepository.getUsers()
     var userName by mutableStateOf("")
     var userAge by mutableStateOf(0)
     fun addUser(){

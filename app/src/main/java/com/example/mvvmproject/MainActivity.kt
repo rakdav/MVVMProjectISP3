@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mvvmproject.ui.theme.MVVMProjectTheme
 import com.example.mvvmproject.view.CounterView
+import com.example.mvvmproject.view.Main
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MVVMProjectTheme {
-                CounterView()
+                Main()
             }
         }
     }

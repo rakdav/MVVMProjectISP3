@@ -1,16 +1,11 @@
 package com.example.mvvmproject.data
 
+import androidx.compose.runtime.mutableStateListOf
+
+
 class UsersRepositoryImpl: UserRepository {
-    var users: MutableList<User>
-    init {
-        users= getUsers()
-    }
-    override fun getUsers(): MutableList<User> {
-        return mutableListOf(
-            User("Serge",18),
-            User("Nadya",20)
-        )
-    }
+    private val users = mutableStateListOf<User>()
+    override fun getUsers(): MutableList<User> =users
     override fun addUser(user: User) {
         users.add(user)
     }

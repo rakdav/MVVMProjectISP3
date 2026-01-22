@@ -9,8 +9,7 @@ class UsersRepositoryImpl: UserRepository {
     override fun addUser(user: User) {
         users.add(user)
     }
-    override fun editUser(user: User) {
-        val index=users.indexOf(user)
+    override fun editUser(user: User,index:Int) {
         users[index].name=user.name
         users[index].age=user.age
     }

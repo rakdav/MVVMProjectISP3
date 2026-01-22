@@ -14,6 +14,8 @@ class UserViewModel: ViewModel() {
     var usersList=usersRepository.getUsers()
     var userName by mutableStateOf("")
     var userAge by mutableStateOf(0)
+    var edit by mutableStateOf(false)
+    var index by mutableStateOf(-1)
     fun addUser(){
         usersRepository.addUser(User(userName,userAge))
     }
@@ -26,7 +28,15 @@ class UserViewModel: ViewModel() {
     fun changeAge(age: String){
         userAge=age.toIntOrNull()?:userAge
     }
-    fun editUser(user:User){
-        usersRepository.editUser(user)
+    fun editUser(){
+        usersRepository.editUser(User(userName,userAge), index)
+        edit=false
+        usersList=usersRepository.getUsers()
+    }
+    fun changeUser(user: User){
+        edit=true
+        index=usersList.indexOf(user)
+        userName=user.name
+        userAge=user.age
     }
 }

@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -21,7 +22,7 @@ import androidx.compose.ui.unit.sp
 import com.example.mvvmproject.data.User
 
 @Composable
-fun UserList(users: List<User>,delete:(User)-> Unit) {
+fun UserList(users: List<User>,delete:(User)-> Unit,edit:(User)-> Unit) {
     LazyColumn(Modifier.fillMaxWidth()) {
         items(users){
             u->
@@ -29,6 +30,12 @@ fun UserList(users: List<User>,delete:(User)-> Unit) {
                 Column{
                     Text(u.name, Modifier.padding(start = 12.dp), fontSize = 25.sp)
                     Text(u.age.toString(), Modifier.padding(start = 12.dp), fontSize = 25.sp)
+                }
+                Button(onClick = { edit(u) }) {
+                    Icon(
+                        imageVector = Icons.Default.Edit,
+                        contentDescription = "Del"
+                    )
                 }
                 Button(onClick = { delete(u) }) {
                     Icon(
